@@ -6,6 +6,10 @@ import * as bcrypt from 'bcryptjs';
 
 import { JwtService } from '@nestjs/jwt';
 
+/**
+ * @class
+ * LoginServiceは、ユーザーのログインおよび認証関連の操作を担当するサービスです。
+ */
 @Injectable()
 export class LoginService {
   private readonly logger = new Logger(LoginService.name);
@@ -16,6 +20,7 @@ export class LoginService {
 
   async login(loginDto: LoginDto) {
     this.logger.log(`ログインリクエスト（サービス）: ${loginDto.email}`);
+
     const { email, password } = loginDto;
 
     // ユーザーの検索
