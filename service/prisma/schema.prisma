@@ -21,8 +21,10 @@ model User {
 }
 
 model Todo {
-  id      String @unique
-  text    String
-  userId  Int
-  user    User   @relation(fields: [userId], references: [id])
+  id         String   @unique
+  text       String
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
